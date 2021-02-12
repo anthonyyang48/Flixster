@@ -17,8 +17,7 @@ import com.example.flixster.modules.Movie;
 
 import java.util.List;
 
-
-public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
+public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> {
 
     Context context;
     List<Movie> movies;
@@ -55,8 +54,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
     }
 
     // ViewHolder is a representation of the row in the Recycler View
-    public class ViewHolder extends RecyclerView.ViewHolder{
-
+    public class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvTitle;
         TextView tvOverview;
         ImageView ivPoster;
@@ -66,7 +64,6 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
             tvTitle = itemView.findViewById(R.id.tvTitle);
             tvOverview = itemView.findViewById(R.id.tvOverview);
             ivPoster = itemView.findViewById(R.id.ivPoster);
-
         }
 
         public void bind(Movie movie) {
@@ -75,4 +72,5 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
             Glide.with(context).load(movie.getPosterPath()).into(ivPoster);
         }
     }
+
 }
