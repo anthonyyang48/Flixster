@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -48,29 +49,38 @@ public class MainActivity extends AppCompatActivity {
 
         // JSON HTTP Response Handler because the API is returning JSON
         client.get(NOW_PLAYING_URL, new JsonHttpResponseHandler() {
+
             @Override
             public void onSuccess(int i, Headers headers, JSON json) {
+
                 Log.d(TAG, "onSuccess");
+
                 // Returns the actual JSON Object from the API
                 JSONObject jsonObject = json.jsonObject;
+
                 // We use exception handling because there might be errors in parsing JSON (results doesn't exist, etc...)
                 try {
+
                     JSONArray results = jsonObject.getJSONArray("results");
                     Log.i(TAG, "Results" + results.toString());
                     // Returns a list of movie objects
                     movies.addAll(Movie.fromJSONArray(results));
                     movieAdapter.notifyDataSetChanged();
                     Log.i(TAG, "Movies " + movies.size());
+
                 } catch (JSONException e) {
                     Log.e(TAG, "Hit json exception", e);
                 }
+
             }
 
             @Override
             public void onFailure(int i, Headers headers, String s, Throwable throwable) {
-                Log.d(TAG, "onFailure");
+                Log.d(TAG, "onFailure" + throwable.getMessage());
             }
+
         });
+
     }
 
 }

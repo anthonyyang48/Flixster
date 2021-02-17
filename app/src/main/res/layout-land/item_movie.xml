@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -13,13 +14,13 @@
 
     <TextView
         android:id="@+id/tvTitle"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
         android:layout_marginStart="133dp"
         android:layout_marginTop="7dp"
+        android:gravity="center"
         android:textSize="18sp"
         android:textStyle="bold"
         tools:text="Wonder Woman 1984" />
@@ -31,6 +32,7 @@
         android:layout_below="@+id/tvTitle"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
+        android:gravity="center"
         android:layout_marginStart="132dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="4dp"
